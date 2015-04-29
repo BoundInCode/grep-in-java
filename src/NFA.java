@@ -6,10 +6,6 @@ import java.util.ArrayList;
 
 public class NFA {
 
-//    public enum Type {
-//        CHAR, PAREN_L, PAREN_R, STAR, PLUS
-//    }
-
     private ArrayList<State> states;
     private String regex;
     private RegexTree tree;
@@ -41,32 +37,6 @@ public class NFA {
         } // else epsilon
     }
 
-//    private void block(){
-//        match('(');
-//        tree.newBlock();
-//        expression();
-//        match(')');
-//
-//        if(lookahead == '+'){
-//            tree.newBlockPlus();
-//            match('+');
-//        } else if(lookahead == '*') {
-//            tree.newBlockStar();
-//            match('*');
-//        }
-//        rtp();
-//    }
-
-//    private void newOr(){
-//        match('|');
-//        tree.newOr();
-//
-//    }
-
-//    private void newAnd(){
-//        tree.newAnd();
-//
-//    }
 
     private void matchChars(char c, char ahead){
         match('c');
@@ -121,60 +91,6 @@ public class NFA {
             }
         } else { //if (tree.curr.type == TreeNode.Type.BLOCK) {
             tree.newAnd();
-            /*if (Character.isLetter(currentChar)){
-                if(lookahead == '|'){
-                    // a|b
-                    match('c');
-                    match('|');
-                    tree.newChar(currentChar);
-
-                } else if(lookahead == '+'){
-                    // a+
-                    match('c');
-                    match('+');
-                    tree.newPlus();
-                    tree.newChar(currentChar);
-
-                } else if(lookahead == '*') {
-                    // a*
-                    match('c');
-                    match('*');
-                    tree.newStar();
-                    tree.newChar(currentChar);
-
-                } else { // char or new block
-                    // ab
-                    match('c');
-                    tree.newAnd();
-                    tree.newChar(currentChar);
-                }
-            } else if (currentChar == '('){
-                match('(');
-                tree.newAnd();
-                tree.newBlock();
-                tree.newOr();
-                expression();
-                match(')');
-                rtp();
-                if(currentChar =='*'){
-                    match('*');
-                    tree.curr.type = TreeNode.Type.STAR;
-                } else if(currentChar =='+'){
-                    match('+');
-                    tree.curr.type = TreeNode.Type.PLUS;
-                }
-                rtp();
-            }*/
-            // should not be necessary.
-            /*else if(currentChar == '+'){
-                // ()+
-                tree.curr.type = TreeNode.Type.PLUS;
-                rtp();
-            } else if(currentChar == '*'){
-                // ()*
-                tree.curr.type = TreeNode.Type.STAR;
-                rtp();
-            }*/
         }
         expression();
     }
