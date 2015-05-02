@@ -16,10 +16,4 @@ public class Transition {
         this.destination = destination;
         this.symbol = symbol;
     }
-
-    public String print(){
-        if (destination == null)
-            return "--\n";
-        return "--" + destination.name + "[label="+ symbol + "]\n";
-    }
 }

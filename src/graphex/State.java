@@ -25,12 +25,4 @@ public class State {
     public void addTransition(State dest){
         transitions.add(new Transition(dest));
     }
-
-    public String print() {
-        String s = "";
-        for (Transition t : transitions) {
-            s += t.print();
-        }
-        return s;
-    }
 }

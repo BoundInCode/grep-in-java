@@ -40,11 +40,9 @@ public class TreeNode {
             case BLOCK:
                 return children.get(0).toNFA();
             case STAR:
-                if (children.size() == 1) {
-                    return children.get(0).toNFA();
-                }
                 NFA currNFA = children.get(0).toNFA();
                 currNFA.starNFA();
+                return currNFA;
             case PLUS:
                 if (children.size() == 1) {
                     return children.get(0).toNFA();
